@@ -9,28 +9,28 @@ import time
 from random import random
 
 class Monitor(object):
-    """Base class for all metrics."""
+  """Base class for all metrics."""
 
-    def __init__(self, metrics, sinks, frequency):
-        self._metrics = metrics
-        self._sinks = sinks
-        self._frequency = frequency
-        self._next_run = time.time() + random() * frequency
+  def __init__(self, metrics, sinks, frequency):
+    self._metrics = metrics
+    self._sinks = sinks
+    self._frequency = frequency
+    self._next_run = time.time() + random() * frequency
 
-    def next_run(self):
-        return self._next_run
+  def next_run(self):
+    return self._next_run
 
-    def collect(self):
-        data_points = []
-        for metric in self._metrics:
-            # print(metric.__class__.__name__)
-            try:
-                data_points.extend(metric.collect())
-            except Exception as e:
-                print('Failed to collect metric {}'.format(e))
-                logging.error('Failed to collect metric {}'.format(e))
+  def collect(self):
+    data_points = []
+    for metric in self._metrics:
+      #try:
+      data_points.extend(metric.collect())
+      #except Exception as e:
+      #  print('Failed to collect metric {}'.format(e))
+      #  logging.error('Failed to collect metric {}'.format(e))
+      metric.store_data()
 
-        for sink in self._sinks:
-            sink.dump(data_points)
+    for sink in self._sinks:
+      sink.dump(data_points)
 
-        self._next_run += self._frequency
+    self._next_run += self._frequency

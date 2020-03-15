@@ -1,0 +1,34 @@
+[
+  {
+    "metrics": [
+      {
+        "class": "RedditMetric",
+        "base_name": "test.reddit.",
+        "parameters": {}
+      },
+      {
+        "class": "TwitterMetric",
+        "base_name": "test.twitter.",
+        "parameters": {"users": ["realDonaldTrump",
+                                 "cnnbrk"],
+                      "suffixes": ["trump",
+                                   "cnn"]
+                    }
+      }
+    ],
+    "sinks": [
+      {
+        "class": "Sink",
+        "parameters": {}
+      },
+      {
+        "class": "CarbonSink",
+        "parameters": {
+          "carbon_server": "entrymissing.net",
+          "carbon_port": "2004"
+        }
+      }
+    ],
+    "frequency": 15
+  }
+]

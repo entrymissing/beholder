@@ -1,13 +1,11 @@
-import abc
-
 class Sink(object):
 
-    def __init__(self, parameters = {}):
+    def __init__(self, parameters=False):
         self._parameters = parameters
         self.setup()
 
     def setup(self):
         pass
 
-    def dump(self, data):
-        print(data)
+    def dump(self, data_points):
+        print(data_points)

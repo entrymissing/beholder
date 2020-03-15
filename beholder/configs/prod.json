@@ -1,0 +1,83 @@
+[
+  {
+    "metrics": [
+      {
+        "class": "CalendarMetric",
+        "base_name": "calendar.",
+        "parameters": {"time_windows": [168, 720],
+                       "suffixes": ["7d", "30d"]
+        }
+      },
+      {
+        "class": "GFitMetric",
+        "base_name": "workout.",
+        "parameters": {"time_windows": [168, 720],
+                       "suffixes": ["7d", "30d"]
+        }
+      },
+      {
+        "class": "GMailLengthOfQueriesMetric",
+        "base_name": "mail.private.",
+        "parameters": {"queries": ["in:inbox",
+                  "in:sent newer_than:1d",
+                  "in:sent newer_than:7d",
+                  "in:sent newer_than:30d",
+                  "label:jounral",
+                  "label:journal newer_than:1d",
+                  "label:journal newer_than:7d",
+                  "label:journal newer_than:30d"],
+                      "suffixes": ["inbox_size",
+                                   "sent_last_24h",
+                                   "sent_last_7d",
+                                   "sent_last_30d",
+                                   "journal_size",
+                                   "journal_last_24h",
+                                   "journal_last_7d",
+                                   "journal_last_30d"]
+        }
+      },
+      {
+        "class": "GMailAgeMetric",
+        "base_name": "mail.private.",
+        "parameters": {"queries": ["in:inbox",
+                                   "label:journal"],
+                      "suffixes": ["inbox",
+                                   "journal"]
+        }
+      }
+    ],
+    "sinks": [
+      {
+        "class": "CarbonSink",
+        "parameters": {
+          "carbon_server": "entrymissing.net",
+          "carbon_port": "2004"
+        }
+      }
+    ],
+    "frequency": 150
+  },
+  {
+    "metrics": [
+      {
+        "class": "TwitterMetric",
+        "base_name": "data.twitter.",
+        "parameters": {"users": ["realDonaldTrump",
+                                 "cnnbrk"],
+                      "suffixes": ["trump",
+                                   "cnn"]
+                    }
+      }      
+    ],
+    "sinks": [
+      {
+        "class": "CarbonSink",
+        "parameters": {
+          "carbon_server": "entrymissing.net",
+          "carbon_port": "2004"
+        }
+      }
+    ],
+    "frequency": 60
+  }
+]

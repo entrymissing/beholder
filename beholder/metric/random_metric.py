@@ -11,5 +11,5 @@ class RandomMetric(Metric):
 
     def collect(self):
         """Collect grabs and returns a set of DataPoints."""
-        metric_name = self._metric_base_name + 'rand_float'
-        return DataPoint(time.time(), metric_name, random())
+        metric_name = self._base_name + 'rand_float'
+        return [DataPoint(time.time(), metric_name, random())]

@@ -4,7 +4,6 @@ Monitors hold lists of metrics and lists of sinks and a timespec.
 They return when they should be called next and when called they
 collect all the metrics and dump them into the sinks.
 """
-import logging
 import time
 from random import random
 
@@ -18,16 +17,14 @@ class Monitor(object):
     self._next_run = time.time() + random() * frequency
 
   def next_run(self):
+    """Determine when this metric should be scheduled next."""
     return self._next_run
 
   def collect(self):
+    """Collect this metric and submit it to the sink."""
     data_points = []
     for metric in self._metrics:
-      #try:
       data_points.extend(metric.collect())
-      #except Exception as e:
-      #  print('Failed to collect metric {}'.format(e))
-      #  logging.error('Failed to collect metric {}'.format(e))
       metric.store_data()
 
     for sink in self._sinks:

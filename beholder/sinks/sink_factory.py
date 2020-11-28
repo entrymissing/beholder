@@ -4,7 +4,7 @@ from sinks.sink import Sink
 from sinks.carbon_sink import CarbonSink
 
 SINK_REGISTRY = {
-    'Sink': Sink,
+    'DryRunSink': Sink,
     'CarbonSink': CarbonSink
 }
 

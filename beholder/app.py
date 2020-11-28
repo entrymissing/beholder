@@ -17,6 +17,7 @@ def main(_):
                       help='Pickle port of the carbon server. Default is 2004.')
   parser.add_argument('-c', '--config', type=str,
                       help='Configuration file to use')
+  # TODO: Remove daemon option and clean up frequency
   parser.add_argument('-d', '--daemon', type=bool, default=False,
                       help='Run as daemon and take care of scheduling. If false all probes will '
                            'be run just once ignoring frequency.')

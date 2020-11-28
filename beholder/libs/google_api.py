@@ -14,7 +14,7 @@ def build_service(service_name, version, pickle_path=None):
     """
     if not pickle_path:
         home_dir = os.path.expanduser('~')
-        pickle_path = os.path.join(home_dir, '.credentials', 'token.pickle')
+        pickle_path = os.path.join(home_dir, '.credentials', 'token.pkl')
     creds = None
     # The file token.pickle stores the user's access and refresh tokens, and is
     # created automatically when the authorization flow completes for the first

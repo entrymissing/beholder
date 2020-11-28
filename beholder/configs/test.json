@@ -32,3 +32,26 @@
     "frequency": 15
   }
 ]
+  {
+    "metrics": [
+      {
+        "class": "TwitterMetric",
+        "base_name": "data.twitter.",
+        "parameters": {"users": ["realDonaldTrump",
+                                 "cnnbrk"],
+                      "suffixes": ["trump",
+                                   "cnn"]
+                    }
+      }      
+    ],
+    "sinks": [
+      {
+        "class": "CarbonSink",
+        "parameters": {
+          "carbon_server": "entrymissing.net",
+          "carbon_port": "2004"
+        }
+      }
+    ],
+    "frequency": 60
+  }

@@ -4,7 +4,6 @@
 import argparse
 import logging
 import sys
-import time
 
 from monitor.monitor_factory import monitor_factory
 
@@ -17,35 +16,17 @@ def main(_):
                       help='Pickle port of the carbon server. Default is 2004.')
   parser.add_argument('-c', '--config', type=str,
                       help='Configuration file to use')
-  # TODO: Remove daemon option and clean up frequency
-  parser.add_argument('-d', '--daemon', type=bool, default=False,
-                      help='Run as daemon and take care of scheduling. If false all probes will '
-                           'be run just once ignoring frequency.')
   args = parser.parse_args()
 
+  # Enable logging
   logging.basicConfig(filename='logs/debug.log', level=logging.ERROR)
 
+  # Create the monitors
   monitors = monitor_factory(args.config)
 
-  # Run as one-shot
-  if not args.daemon:
-    for monitor in monitors:
-      monitor.collect()
-
-  # Run scheduler
-  else:
-    monitor_queue = []
-    for monitor in monitors:
-      monitor_queue.append((monitor.next_run(), monitor))
-    monitor_queue = sorted(monitor_queue)
-    while True:
-      next_run, monitor = monitor_queue.pop(0)
-      if  next_run - time.time() < 0:
-        logging.error('Got negative wait time')
-      time.sleep(max(0, next_run - time.time()))
-      monitor.collect()
-      monitor_queue.append((monitor.next_run(), monitor))
-      monitor_queue = sorted(monitor_queue)
+  # Run the monitors
+  for monitor in monitors:
+    monitor.collect()
 
 
 if __name__ == '__main__':

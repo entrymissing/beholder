@@ -3,6 +3,7 @@
 from metric.calendar_metric import CalendarMetric
 from metric.gmail_metric import GMailLengthOfQueriesMetric, GMailOldestInInboxMetric, GMailAgeMetric
 from metric.gfit_metric import GFitMetric
+from metric.ip_metric import IPMetric
 from metric.random_metric import RandomMetric
 from metric.reddit_metric import RedditMetric
 from metric.test_metric import TestMetric
@@ -14,6 +15,7 @@ METRIC_REGISTRY = {
     'GMailOldestInInboxMetric': GMailOldestInInboxMetric,
     'GMailAgeMetric': GMailAgeMetric,
     'GFitMetric': GFitMetric,
+    'IPMetric': IPMetric,
     'RandomMetric': RandomMetric,
     'RedditMetric': RedditMetric,
     'TestMetric': TestMetric,
@@ -21,14 +23,15 @@ METRIC_REGISTRY = {
 }
 
 def get_metric(name, base_name, parameters):
-    """Factory function that returns a metric."""
-    return METRIC_REGISTRY[name](base_name, parameters)
+  """Factory function that returns a metric."""
+  return METRIC_REGISTRY[name](base_name, parameters)
 
 def metric_factory(metric_config):
-    for required_field in ("class", "base_name", "parameters"):
-        if not required_field in metric_config:
-            raise KeyError("{} field missing in metric config".format(required_field))
+  """Creates a metric from a matric config."""
+  for required_field in ("class", "base_name", "parameters"):
+    if not required_field in metric_config:
+      raise KeyError("{} field missing in metric config".format(required_field))
 
-    return get_metric(metric_config["class"],
-                      metric_config["base_name"],
-                      metric_config["parameters"])
+  return get_metric(metric_config["class"],
+                    metric_config["base_name"],
+                    metric_config["parameters"])

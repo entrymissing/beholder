@@ -44,6 +44,11 @@
                       "suffixes": ["inbox",
                                    "journal"]
         }
+      },
+      {
+        "class": "IPMetric",
+        "base_name": "ip.",
+        "parameters": {"location": "home"}
       }
     ],
     "sinks": [
@@ -54,7 +59,6 @@
           "carbon_port": "2004"
         }
       }
-    ],
-    "frequency": 150
+    ]
   }
 ]

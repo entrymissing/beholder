@@ -2,18 +2,9 @@
   {
     "metrics": [
       {
-        "class": "RedditMetric",
-        "base_name": "test.reddit.",
-        "parameters": {}
-      },
-      {
-        "class": "TwitterMetric",
-        "base_name": "test.twitter.",
-        "parameters": {"users": ["realDonaldTrump",
-                                 "cnnbrk"],
-                      "suffixes": ["trump",
-                                   "cnn"]
-                    }
+        "class": "IPMetric",
+        "base_name": "ip.",
+        "parameters": {"location": "home"}
       }
     ],
     "sinks": [
@@ -21,7 +12,6 @@
         "class": "DryRunSink",
         "parameters": {}
       }
-    ],
-    "frequency": 15
+    ]
   }
 ]

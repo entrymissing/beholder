@@ -6,7 +6,6 @@ from metric.gfit_metric import GFitMetric
 from metric.ip_metric import IPMetric
 from metric.random_metric import RandomMetric
 from metric.reddit_metric import RedditMetric
-from metric.test_metric import TestMetric
 from metric.twitter_metric import TwitterMetric
 
 METRIC_REGISTRY = {
@@ -18,7 +17,6 @@ METRIC_REGISTRY = {
     'IPMetric': IPMetric,
     'RandomMetric': RandomMetric,
     'RedditMetric': RedditMetric,
-    'TestMetric': TestMetric,
     'TwitterMetric': TwitterMetric,
 }
 

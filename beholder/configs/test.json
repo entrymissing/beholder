@@ -2,9 +2,9 @@
   {
     "metrics": [
       {
-        "class": "IPMetric",
-        "base_name": "ip.",
-        "parameters": {"location": "home"}
+        "class": "RandomMetric",
+        "base_name": "test.",
+        "parameters": {}
       }
     ],
     "sinks": [

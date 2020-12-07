@@ -5,6 +5,7 @@ from metric.gmail_metric import GMailLengthOfQueriesMetric, GMailOldestInInboxMe
 from metric.gfit_metric import GFitMetric
 from metric.ip_metric import IPMetric
 from metric.random_metric import RandomMetric
+from metric.netatmo_metric import NetatmoMetric
 from metric.reddit_metric import RedditMetric
 from metric.twitter_metric import TwitterMetric
 
@@ -15,6 +16,7 @@ METRIC_REGISTRY = {
     'GMailAgeMetric': GMailAgeMetric,
     'GFitMetric': GFitMetric,
     'IPMetric': IPMetric,
+    'NetatmoMetric': NetatmoMetric,
     'RandomMetric': RandomMetric,
     'RedditMetric': RedditMetric,
     'TwitterMetric': TwitterMetric,

@@ -49,7 +49,12 @@
         "class": "IPMetric",
         "base_name": "ip.",
         "parameters": {"location": "home"}
-      }
+      },
+      {
+        "class": "NetatmoMetric",
+        "base_name": "air.",
+        "parameters": {}
+      }      
     ],
     "sinks": [
       {

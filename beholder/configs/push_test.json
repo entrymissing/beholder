@@ -1,0 +1,20 @@
+[
+  {
+    "metrics": [
+      {
+        "class": "RandomMetric",
+        "base_name": "test.",
+        "parameters": {}
+      }
+    ],
+    "sinks": [
+      {
+        "class": "CarbonSink",
+        "parameters": {
+          "carbon_server": "dashboard.entrymissing.net",
+          "carbon_port": "2004"
+        }
+      }
+    ]
+  }
+]

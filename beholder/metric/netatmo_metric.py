@@ -15,7 +15,7 @@ class NetatmoMetric(Metric):
 
   def collect(self):
     """Collect grabs and returns a set of DataPoints."""
-    creds = pkl.load(open('/home/pi/.credentials/netatmo.pkl', 'rb'))
+    creds = pkl.load(open('/home/entrymissing/.credentials/netatmo.pkl', 'rb'))
     weather_station = netatmo.WeatherStation(creds)
     weather_station.get_data()
     station = weather_station.devices[0]

@@ -54,13 +54,13 @@
         "class": "NetatmoMetric",
         "base_name": "air.",
         "parameters": {}
-      }      
+      }
     ],
     "sinks": [
       {
         "class": "CarbonSink",
         "parameters": {
-          "carbon_server": "entrymissing.net",
+          "carbon_server": "dashboard.entrymissing.net",
           "carbon_port": "2004"
         }
       }

@@ -3,6 +3,7 @@
 
 import argparse
 import logging
+import os
 import sys
 
 from monitor.monitor_factory import monitor_factory
@@ -18,7 +19,10 @@ def main(_):
                       help='Configuration file to use')
   args = parser.parse_args()
 
+  log_filename = 'logs/debug.log'
+
   # Enable logging
+  os.makedirs(os.path.dirname(log_filename), exist_ok=True)
   logging.basicConfig(filename='logs/debug.log', level=logging.ERROR)
 
   # Create the monitors

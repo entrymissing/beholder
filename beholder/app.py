@@ -19,9 +19,8 @@ def main(_):
                       help='Configuration file to use')
   args = parser.parse_args()
 
-  log_filename = 'logs/debug.log'
-
   # Enable logging
+  log_filename = 'logs/debug.log'
   os.makedirs(os.path.dirname(log_filename), exist_ok=True)
   logging.basicConfig(filename='logs/debug.log', level=logging.ERROR)
 

@@ -1,19 +1,18 @@
-"""Monitor holds the base classes for monitors in beholder.
+"""Monitor holds the class for monitors in beholder.
 
-Monitors hold lists of metrics and lists of sinks and a timespec.
-They return when they should be called next and when called they
-collect all the metrics and dump them into the sinks.
+Monitors hold lists of metrics and sinks. When collect() is called
+they collect all metrics and dump them into the sinks.
 """
 
 class Monitor(object):
-  """Base class for all metrics."""
+  """Base class for the monitor."""
 
   def __init__(self, metrics, sinks):
     self._metrics = metrics
     self._sinks = sinks
 
   def collect(self):
-    """Collect this metric and submit it to the sink."""
+    """Collect all the metrics and submit them to the sinks."""
     data_points = []
     for metric in self._metrics:
       data_points.extend(metric.collect())

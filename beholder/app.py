@@ -33,6 +33,7 @@ def main(_):
   monitors = monitor_factory(args.config)
 
   next_run = time.time()
+  print(next_run)
 
   while True:
     time.sleep(max(0, next_run - time.time()))

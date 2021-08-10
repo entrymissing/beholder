@@ -51,6 +51,16 @@
         "parameters": {"location": "home"}
       },
       {
+        "class": "UptimeMetric",
+        "base_name": "data.spectre.",
+        "parameters": {}
+      },
+      {
+        "class": "TimeMetric",
+        "base_name": "data.spectre.",
+        "parameters": {}
+      },
+      {
         "class": "NetatmoMetric",
         "base_name": "air.",
         "parameters": {}

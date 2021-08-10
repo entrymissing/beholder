@@ -2,7 +2,12 @@
   {
     "metrics": [
       {
-        "class": "RandomMetric",
+        "class": "UptimeMetric",
+        "base_name": "test.",
+        "parameters": {}
+      },
+      {
+        "class": "TimeMetric",
         "base_name": "test.",
         "parameters": {}
       }

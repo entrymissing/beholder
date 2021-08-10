@@ -6,8 +6,10 @@ from metric.gfit_metric import GFitMetric
 from metric.ip_metric import IPMetric
 from metric.random_metric import RandomMetric
 from metric.netatmo_metric import NetatmoMetric
+from metric.uptime_metric import UptimeMetric
 from metric.reddit_metric import RedditMetric
 from metric.twitter_metric import TwitterMetric
+from metric.time_metric import TimeMetric
 
 METRIC_REGISTRY = {
     'CalendarMetric': CalendarMetric,
@@ -20,6 +22,8 @@ METRIC_REGISTRY = {
     'RandomMetric': RandomMetric,
     'RedditMetric': RedditMetric,
     'TwitterMetric': TwitterMetric,
+    'UptimeMetric': UptimeMetric,
+    'TimeMetric': TimeMetric,
 }
 
 def get_metric(name, base_name, parameters):

@@ -3,12 +3,12 @@
     "metrics": [
       {
         "class": "UptimeMetric",
-        "base_name": "data.spectre.",
+        "base_name": "data.time.gce.",
         "parameters": {}
       },
       {
         "class": "TimeMetric",
-        "base_name": "data.spectre.",
+        "base_name": "data.time.gce.",
         "parameters": {}
       }
     ],

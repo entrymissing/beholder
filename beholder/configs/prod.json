@@ -52,12 +52,12 @@
       },
       {
         "class": "UptimeMetric",
-        "base_name": "data.spectre.",
+        "base_name": "data.time.spectre.",
         "parameters": {}
       },
       {
         "class": "TimeMetric",
-        "base_name": "data.spectre.",
+        "base_name": "data.time.spectre.",
         "parameters": {}
       },
       {

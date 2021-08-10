@@ -1,0 +1,25 @@
+[
+  {
+    "metrics": [
+      {
+        "class": "UptimeMetric",
+        "base_name": "data.time.pi.",
+        "parameters": {}
+      },
+      {
+        "class": "TimeMetric",
+        "base_name": "data.time.pi.",
+        "parameters": {}
+      }
+    ],
+    "sinks": [
+      {
+        "class": "CarbonSink",
+        "parameters": {
+          "carbon_server": "dashboard.entrymissing.net",
+          "carbon_port": "2004"
+        }
+      }
+    ]
+  }
+]
